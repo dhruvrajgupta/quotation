@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+
+    <title>Checkout example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <script src="https://kit.fontawesome.com/945871b1a0.js" crossorigin="anonymous"></script>
+
+    
+
+    
+
+<link href="/src/lib/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<!-- <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico"> -->
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <!-- <link href="form-validation.css" rel="stylesheet"> -->
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+        <!--LOGO-->
+      <!-- <img class="d-block mx-auto mb-4" src="/src/images/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+      <h2>Yash Corporation</h2>
+      <!-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> -->
+    </div>
+
+    
+    <div class="row g-5">
+        <div class="col"><address>
+            <strong>Yash Corporation</strong><br>
+            26, Chatta Wala Gulli,<br>
+            Kolkata - 700-012, West Bengal<br><br/>
+            <i class="fa-sharp fa-solid fa-phone"></i> &nbsp; (+91) 9433099062<br/>
+            <i class="fa-solid fa-envelope"></i> &nbsp; yashcorpkol@gmail.com
+          </address></div>
+        <div class="col">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+        <div class="col"><address>
+            <strong>Example Inc.</strong><br>
+            1234 Example Street<br>
+            Antartica, Example 0987<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address></div>
+    </div>
+    <div class="row g-5 text-center">
+        <h4>Quotation</h4>
+    </div>
+    <div class="row g-5">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description of Goods</th>
+            <th scope="col">Brand</th>
+            <th scope="col">HSN Code</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Value</th>
+            <th scope="col">GST %</th>
+            <th scope="col">Tax</th>
+            <th scope="col">Amount<br/>(Value+GST)</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <td>1</td>
+            <td>Quarter Plate</td>
+            <td>La Opala</td>
+            <td>1234</td>
+            <td>Pcs</td>
+            <td>250</td>
+            <td>50</td>
+            <td>12500</td>
+            <td>12%</td>
+            <td>1500.00</td>
+            <td>13500.00</td>
+            <td>
+                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Bone China Cup Saucer</td>
+            <td>La Opala</td>
+            <td>1234</td>
+            <td>Pcs</td>
+            <td>250</td>
+            <td>50</td>
+            <td>12500</td>
+            <td>12%</td>
+            <td>1500.00</td>
+            <td>13500.00</td>
+            <td>
+                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Knife</td>
+            <td>La Opala</td>
+            <td>1234</td>
+            <td>Pcs</td>
+            <td>250</td>
+            <td>50</td>
+            <td>12500</td>
+            <td>12%</td>
+            <td>1500.00</td>
+            <td>13500.00</td>
+            <td>
+                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Item</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+    </div>
+  </main>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success p-3">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <label for="exampleDataList" class="form-label">Description</label>
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+            <datalist id="datalistOptions">
+              <option value="San Francisco">
+              <option value="New York">
+              <option value="Seattle">
+              <option value="Los Angeles">
+              <option value="Chicago">
+            </datalist>
+            <br>
+            <label for="exampleDataList" class="form-label">Brand</label>
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+            <datalist id="datalistOptions">
+              <option value="San Francisco">
+              <option value="New York">
+              <option value="Seattle">
+              <option value="Los Angeles">
+              <option value="Chicago">
+            </datalist>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017–2022 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+
+
+    <script src="/src/lib/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+      <!-- <script src="form-validation.js"></script> -->
+  </body>
+</html>
