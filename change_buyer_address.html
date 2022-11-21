@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal fade" id="changeBuyerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header text-bg-success p-3">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Buyer Address</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body p-5">
+
+                <label for="company_name" class="form-label">Name of Buyer Company</label>
+                <input class="form-control" list="datalistOptions" id="description" placeholder="Type to search...">
+                <datalist id="datalistOptions">
+                    <option value="San Francisco">
+                    <option value="New York">
+                    <option value="Seattle">
+                    <option value="Los Angeles">
+                    <option value="Chicago">
+                </datalist><br>
+            
+                <label for="address1" class="form-label">Address Line 1</label>
+                <input class="form-control" id="brand" placeholder="Eg: 1234 Example Street..."><br>
+
+                <label for="address2" class="form-label">Address Line 2</label>
+                <input class="form-control" id="brand" placeholder="Eg: Antartica, Example 0987..."><br>
+
+                <label for="phone" class="form-label">Phone Number</label>
+                <input class="form-control" id="phone"><br>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save Item</button>
+        </div>
+
+    </div>
+</div>
