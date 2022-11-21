@@ -8,33 +8,110 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
-            <div class="modal-body">
+            <div class="modal-body p-5">
 
-                <label for="exampleDataList" class="form-label">Description</label>
-                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                <label for="description" class="form-label">Description</label>
+                <input class="form-control" list="datalistOptions" id="description" placeholder="Type to search...">
                 <datalist id="datalistOptions">
                     <option value="San Francisco">
                     <option value="New York">
                     <option value="Seattle">
                     <option value="Los Angeles">
                     <option value="Chicago">
-                </datalist>
+                </datalist><br>
             
-                <label for="exampleDataList" class="form-label">Brand</label>
-                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                <label for="brand" class="form-label">Brand</label>
+                <input class="form-control" list="datalistOptions" id="brand" placeholder="Type to search...">
                 <datalist id="datalistOptions">
                     <option value="San Francisco">
                     <option value="New York">
                     <option value="Seattle">
                     <option value="Los Angeles">
                     <option value="Chicago">
-                </datalist>
+                </datalist><br>
+
+                <!-- Row for hsn code, unit and quantity-->
+                <div class="row">
+
+                    <div class="col-auto">
+
+                        <!--HSN Code-->
+                        <label for="hsn_code" class="form-label">HSN Code</label>
+                        <input class="form-control" list="datalistOptions" id="hsn_code" placeholder="Type to search...">
+                        <datalist id="datalistOptions">
+                            <option value="San Francisco">
+                            <option value="New York">
+                            <option value="Seattle">
+                            <option value="Los Angeles">
+                            <option value="Chicago">
+                        </datalist><br>
+                    </div>
+
+                    <!--Unit-->
+                    <div class="col-auto">
+                        <label for="unit" class="form-label">Unit</label>
+                        <select class="form-select" id="unit" aria-label="Default select example">
+                            <option value="PCS" selected>PCS</option>
+                            <option value="SET">SET</option>
+                        </select><br>
+                    </div>
+
+                    <!--Quantity-->
+                    <div class="col-auto">
+                        <label for="qty" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="qty"><br>
+                    </div>
+
+                </div>
+
+                <!-- Row for rate and value-->
+                <div class="row">
+
+                    <div class="col-auto">
+
+                        <!--Rate-->
+                        <label for="rate" class="form-label">Rate</label>
+                        <input type="number" class="form-control" id="rate"><br>
+                    </div>
+
+                    <!--Value-->
+                    <div class="col-auto">
+                        <label for="value" class="form-label">Value</label>
+                        <input type="number" class="form-control" id="value" disabled><br>        
+                    </div>
+
+                </div>
+
+                <!-- Row for gst and tax amount-->
+                <div class="row">
+
+                    <div class="col-auto">
+
+                        <!--GST-->
+                        <label for="gst" class="form-label">GST %</label>
+                        <select class="form-select" id="unit" aria-label="Default select example">
+                            <option value="twelve">12%</option>
+                            <option value="eighteem" selected>18%</option>
+                        </select><br>
+                    </div>
+
+                    <!--Value-->
+                    <div class="col-auto">
+                        <label for="tax" class="form-label">Tax Amount</label>
+                        <input type="number"  class="form-control" id="tax" disabled><br>       
+                    </div>
+
+                </div>
+
+
+                <label for="item_total_amout" class="form-label">Total Amount (Value + GST)</label>
+                <input type="number" class="form-control form-control-lg" id="titem_total_amoutax" disabled><br>
 
         </div>
 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-primary">Save Item</button>
         </div>
 
     </div>
