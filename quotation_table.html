@@ -1,75 +1,92 @@
-<div class="row g-5 text-center">
-	<h4>Quotation</h4>
+<div class="row">
+    <div class="col">
+        <h4 class="text-center">Quotation</h4>
+    </div>
 </div>
-<div class="row g-5">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Description of Goods</th>
-				<th scope="col">Brand</th>
-				<th scope="col">HSN Code</th>
-				<th scope="col">Unit</th>
-				<th scope="col">Qty</th>
-				<th scope="col">Rate</th>
-				<th scope="col">Value</th>
-				<th scope="col">GST %</th>
-				<th scope="col">Tax</th>
-				<th scope="col">Amount<br/>(Value+GST)</th>
-				<th scope="col">Action</th>
-			</tr>
-		</thead>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Description of Goods</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">HSN Code</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">GST %</th>
+                    <th scope="col">Tax</th>
+                    <th scope="col">Amount<br/>(Value+GST)</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
 
-		<tbody class="table-group-divider">
-			<tr>
-				<td>1</td>
-				<td>Quarter Plate</td>
-				<td>La Opala</td>
-				<td>1234</td>
-				<td>Pcs</td>
-				<td>250</td>
-				<td>50</td>
-				<td>12500</td>
-				<td>12%</td>
-				<td>1500.00</td>
-				<td>13500.00</td>
-				<td>
-					<button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-					<button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-				</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>Quarter Plate</td>
-				<td>La Opala</td>
-				<td>1234</td>
-				<td>Pcs</td>
-				<td>250</td>
-				<td>50</td>
-				<td>12500</td>
-				<td>12%</td>
-				<td>1500.00</td>
-				<td>13500.00</td>
-				<td>
-					<button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-					<button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">Add Item</button>
-				</td>
-                <td></td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeCompanyNameModal">Change Company Name</button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeBuyerModal">Change Buyer Address</button>
-                </td>
-			</tr>
-		</tbody>
-	</table>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Quarter Plate</td>
+                    <td>La Opala</td>
+                    <td>1234</td>
+                    <td>Pcs</td>
+                    <td>250</td>
+                    <td>50</td>
+                    <td>12500</td>
+                    <td>12%</td>
+                    <td>1500.00</td>
+                    <td>13500.00</td>
+                    <td>
+                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Quarter Plate</td>
+                    <td>La Opala</td>
+                    <td>1234</td>
+                    <td>Pcs</td>
+                    <td>250</td>
+                    <td>50</td>
+                    <td>12500</td>
+                    <td>12%</td>
+                    <td>1500.00</td>
+                    <td>13500.00</td>
+                    <td>
+                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+                    </td>
+                    <td colspan="2">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editBuyer">Edit Buyer</button>
+                    </td>
+                    <td colspan="3">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editCompany">Edit Company</button>
+                    </td>
+                    <td colspan="2">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">Performa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

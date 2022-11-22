@@ -1,13 +1,15 @@
 <!-- Modal -->
-<div class="modal fade" id="changeBuyerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="editBuyer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
-            <div class="modal-header text-bg-success p-3">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Buyer Address</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Buyer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            
+
             <div class="modal-body p-5">
 
                 <label for="company_name" class="form-label">Name of Buyer Company</label>
@@ -29,12 +31,13 @@
                 <label for="phone" class="form-label">Phone Number</label>
                 <input class="form-control" id="phone"><br>
 
-        </div>
+            </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save Item</button>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Item</button>
+            </div>
 
+        </div>
     </div>
 </div>

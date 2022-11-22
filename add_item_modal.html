@@ -1,16 +1,18 @@
 <!-- Modal -->
-<div class="modal fade" id="addItemModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
-            <div class="modal-header text-bg-success p-3">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Item</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            
+
             <div class="modal-body p-5">
 
-                <label for="description" class="form-label">Description</label>
+                <label for="description">Description</label>
                 <input class="form-control" list="datalistOptions" id="description" placeholder="Type to search...">
                 <datalist id="datalistOptions">
                     <option value="San Francisco">
@@ -20,7 +22,7 @@
                     <option value="Chicago">
                 </datalist><br>
             
-                <label for="brand" class="form-label">Brand</label>
+                <label for="brand">Brand</label>
                 <input class="form-control" list="datalistOptions" id="brand" placeholder="Type to search...">
                 <datalist id="datalistOptions">
                     <option value="San Francisco">
@@ -33,10 +35,10 @@
                 <!-- Row for hsn code, unit and quantity-->
                 <div class="row">
 
-                    <div class="col-auto">
+                    <div class="col">
 
                         <!--HSN Code-->
-                        <label for="hsn_code" class="form-label">HSN Code</label>
+                        <label for="hsn_code">HSN Code</label>
                         <input class="form-control" list="datalistOptions" id="hsn_code" placeholder="Type to search...">
                         <datalist id="datalistOptions">
                             <option value="San Francisco">
@@ -48,17 +50,17 @@
                     </div>
 
                     <!--Unit-->
-                    <div class="col-auto">
-                        <label for="unit" class="form-label">Unit</label>
-                        <select class="form-select" id="unit" aria-label="Default select example">
+                    <div class="col">
+                        <label for="unit">Unit</label>
+                        <select class="form-control" id="unit" aria-label="Default select example">
                             <option value="PCS" selected>PCS</option>
                             <option value="SET">SET</option>
                         </select><br>
                     </div>
 
                     <!--Quantity-->
-                    <div class="col-auto">
-                        <label for="qty" class="form-label">Quantity</label>
+                    <div class="col">
+                        <label for="qty">Quantity</label>
                         <input type="number" class="form-control" id="qty"><br>
                     </div>
 
@@ -67,16 +69,16 @@
                 <!-- Row for rate and value-->
                 <div class="row">
 
-                    <div class="col-auto">
+                    <div class="col">
 
                         <!--Rate-->
-                        <label for="rate" class="form-label">Rate</label>
+                        <label for="rate">Rate</label>
                         <input type="number" class="form-control" id="rate"><br>
                     </div>
 
                     <!--Value-->
-                    <div class="col-auto">
-                        <label for="value" class="form-label">Value</label>
+                    <div class="col">
+                        <label for="value">Value</label>
                         <input type="number" class="form-control" id="value" disabled><br>        
                     </div>
 
@@ -85,34 +87,35 @@
                 <!-- Row for gst and tax amount-->
                 <div class="row">
 
-                    <div class="col-auto">
+                    <div class="col">
 
                         <!--GST-->
-                        <label for="gst" class="form-label">GST %</label>
-                        <select class="form-select" id="unit" aria-label="Default select example">
+                        <label for="gst">GST %</label>
+                        <select class="form-control" id="unit" aria-label="Default select example">
                             <option value="twelve">12%</option>
                             <option value="eighteem" selected>18%</option>
                         </select><br>
                     </div>
 
                     <!--Value-->
-                    <div class="col-auto">
-                        <label for="tax" class="form-label">Tax Amount</label>
+                    <div class="col">
+                        <label for="tax">Tax Amount</label>
                         <input type="number"  class="form-control" id="tax" disabled><br>       
                     </div>
 
                 </div>
 
 
-                <label for="item_total_amout" class="form-label">Total Amount (Value + GST)</label>
+                <label for="item_total_amout">Total Amount (Value + GST)</label>
                 <input type="number" class="form-control form-control-lg" id="titem_total_amoutax" disabled><br>
 
-        </div>
+            </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save Item</button>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Item</button>
+            </div>
 
+        </div>
     </div>
 </div>
