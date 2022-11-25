@@ -15,6 +15,10 @@ var company = {
     "gstin": ""
 };
 
+var items_list = [];
+items_list.push({"description": "Cup Saucer", "brand": "Borosil", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.18", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
+items_list.push({"description": "Spoons", "brand": "VIP", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.18", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
+
 var buyerDetails = {};
 
 function showBuyerDetails(buyerDetails){
@@ -42,12 +46,20 @@ $(document).on('click', "#saveItemBtn", function(){
     newItem["unit"] = $("#unit").val();
     newItem["qty"] = $("#qty").val();
     newItem["rate"] = $("#rate").val();
-    newItem["value"] = $("#value").val();
     newItem["gst"] = $("#gst").val();
-    newItem["tax_amt"] = $("#tax").val();
-    newItem["total_amt"] = $("#item_total_amount").val();
 
-    console.log(newItem)
+    item_calculated_amounts = calculate_amounts(newItem["qty"], newItem["rate"], newItem["gst"]);
+    console.log(item_calculated_amounts);
+
+    newItem["value"] = item_calculated_amounts["value"];
+    newItem["tax_amount"] = item_calculated_amounts["tax_amount"]
+    newItem["item_total_amount"] = item_calculated_amounts["item_total_amount"];
+
+    items_list.push(newItem);
+    eleModal = $(this).parent().parent().parent().parent();
+    eleModal.modal('hide');
+
+    createTable();
 });
 
 function triggers(id){
@@ -103,4 +115,42 @@ function calculate_amounts(qty, rate, gst){
 var ids = ['#qty', '#rate', '#gst'];
 for (let x in ids){
     triggers(ids[x]);
+}
+
+function createTable(){
+    eleTableBody = $("#item_list_table tbody");
+
+    eleTableBody.html('');
+
+    for (var i=0; i<items_list.length; i++){
+        eleTableBody.append(renderItemRow(i, items_list[i]));
+        console.log(items_list[i]);
+    }
+}
+
+function renderItemRow(index, item){
+    var render = `` +
+        `<tr>
+            <td>${index+1}</td>
+            <td>${item["description"]}</td>
+            <td>${item["brand"]}</td>
+            <td>${item["hsn"]}</td>
+            <td>${item["unit"]}</td>
+            <td>${item["qty"]}</td>
+            <td>${toIndianCurrency(item["rate"])}</td>
+            <td>${toIndianCurrency(item["value"])}</td>
+            <td>${item["gst"]*100}</td>
+            <td>${toIndianCurrency(item["tax_amount"])}</td>
+            <td>${toIndianCurrency(item["item_total_amount"])}</td>
+            <td>
+                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </td>
+        </tr>`;
+
+    return render;
+}
+
+function validateItem(item){
+    
 }
