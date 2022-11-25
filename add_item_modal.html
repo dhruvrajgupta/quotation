@@ -79,7 +79,7 @@
                     <!--Value-->
                     <div class="col">
                         <label for="value">Value</label>
-                        <input type="number" class="form-control" id="value" disabled><br>        
+                        <input type="text" class="form-control" id="value" disabled><br>        
                     </div>
 
                 </div>
@@ -91,29 +91,29 @@
 
                         <!--GST-->
                         <label for="gst">GST %</label>
-                        <select class="form-control" id="unit" aria-label="Default select example">
-                            <option value="twelve">12%</option>
-                            <option value="eighteem" selected>18%</option>
+                        <select class="form-control" id="gst" aria-label="Default select example">
+                            <option value="0.12">12%</option>
+                            <option value="0.18" selected>18%</option>
                         </select><br>
                     </div>
 
                     <!--Value-->
                     <div class="col">
-                        <label for="tax">Tax Amount</label>
-                        <input type="number"  class="form-control" id="tax" disabled><br>       
+                        <label for="tax_amount">Tax Amount</label>
+                        <input type="text"  class="form-control" id="tax_amount" disabled><br>       
                     </div>
 
                 </div>
 
 
-                <label for="item_total_amout">Total Amount (Value + GST)</label>
-                <input type="number" class="form-control form-control-lg" id="titem_total_amoutax" disabled><br>
+                <label for="item_total_amount">Total Amount (Value + GST)</label>
+                <input type="text" class="form-control form-control-lg" id="item_total_amount" disabled><br>
 
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Item</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveItemBtn">Save Item</button>
             </div>
 
         </div>
