@@ -38,6 +38,14 @@ $(document).on('click', '#saveBtnBuyerDetail', function(){
     showBuyerDetails(buyerDetails);
 });
 
+$(document).on('click', '.delete', function(){ 
+    item_id = $(this).parent().parent().attr('id');
+    item_id = item_id.split("_")[1];
+    console.log(item_id);
+    items_list.splice(item_id,1);
+    createTable();
+});
+
 $(document).on('click', "#saveItemBtn", function(){
     var newItem = {};
     newItem["description"] = $("#description").val();
@@ -119,6 +127,7 @@ for (let x in ids){
 
 function createTable(){
     eleTableBody = $("#item_list_table tbody");
+    console.log(eleTableBody);
 
     eleTableBody.html('');
 
@@ -130,7 +139,7 @@ function createTable(){
 
 function renderItemRow(index, item){
     var render = `` +
-        `<tr>
+        `<tr id='item_${index}'>
             <td>${index+1}</td>
             <td>${item["description"]}</td>
             <td>${item["brand"]}</td>
@@ -143,14 +152,10 @@ function renderItemRow(index, item){
             <td>${toIndianCurrency(item["tax_amount"])}</td>
             <td>${toIndianCurrency(item["item_total_amount"])}</td>
             <td>
-                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="btn btn-success edit"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>`;
 
     return render;
-}
-
-function validateItem(item){
-    
 }
