@@ -95,32 +95,29 @@
     </div>
 </div>
 
-<div class="alert" role="alert" id="result"></div>
 <script>
-    var modalConfirm = function(callback){
-  
-  $("#btn-confirm").on("click", function(){
-    $("#mi-modal").modal('show');
-  });
+    $(document).on('click', '.delete', function(){ 
+        eleDeleteModal = $('#confirmDeleteModal')
+        item_id = $(this).parent().parent().attr('id');
+        item_id = item_id.split("_")[1];
 
-  $("#modal-btn-si").on("click", function(){
-    callback(true);
-    $("#mi-modal").modal('hide');
-  });
-  
-  $("#modal-btn-no").on("click", function(){
-    callback(false);
-    $("#mi-modal").modal('hide');
-  });
-};
+        eleDeleteModal.modal('show');
+        var item = items_list[item_id];
+        $("#del-description").val(item["description"]);
+        $("#del-brand").val(item["brand"]);
+        $("#del-hsn_code").val(item["hsn"]);
+        $("#del-unit").val(item["unit"]);
+        $("#del-qty").val(item["qty"]);
+        $("#del-rate").val(item["rate"]);
+        $("#del-gst").val(item["gst"]);
+        $("#del-value").val(item["value"]);
+        $("#del-tax_amount").val(item["tax_amount"]);
+        $("#del-item_total_amount").val(item["item_total_amount"]);
 
-modalConfirm(function(confirm){
-  if(confirm){
-    //Acciones si el usuario confirma
-    $("#result").html("CONFIRMADO");
-  }else{
-    //Acciones si el usuario no confirma
-    $("#result").html("NO CONFIRMADO");
-  }
-});
+        $('#delItemBtn').click(function(){
+            items_list.splice(item_id,1);
+            eleDeleteModal.modal('hide');
+            createTable();
+        });
+    });
 </script>

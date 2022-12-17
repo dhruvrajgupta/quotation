@@ -19,102 +19,6 @@ var items_list = [];
 items_list.push({"description": "Cup Saucer", "brand": "Borosil", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.12", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
 items_list.push({"description": "Spoons", "brand": "VIP", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.18", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
 
-var buyerDetails = {};
-
-function showBuyerDetails(buyerDetails){
-    $("#textBuyerName").text(buyerDetails["name"]);
-    $("#textBuyerAddress1").text(buyerDetails["address1"]);
-    $("#textBuyerAddress2").text(buyerDetails["address2"]);
-    $("#textBuyerPhone").text(buyerDetails["phone"]);
-}
-
-$(document).on('click', '#saveBtnBuyerDetail', function(){ 
-    // Your Code
-    buyerDetails["name"] = $("#buyer_name").val();
-    buyerDetails["address1"] = $("#buyer_address1").val();
-    buyerDetails["address2"] = $("#buyer_address2").val();
-    buyerDetails["phone"] = $("#buyer_phone").val();
-
-    showBuyerDetails(buyerDetails);
-});
-
-$(document).on('click', '.delete', function(){ 
-    eleDeleteModal = $('#confirmDeleteModal')
-    item_id = $(this).parent().parent().attr('id');
-    item_id = item_id.split("_")[1];
-
-    eleDeleteModal.modal('show');
-    var item = items_list[item_id];
-    $("#del-description").val(item["description"]);
-    $("#del-brand").val(item["brand"]);
-    $("#del-hsn_code").val(item["hsn"]);
-    $("#del-unit").val(item["unit"]);
-    $("#del-qty").val(item["qty"]);
-    $("#del-rate").val(item["rate"]);
-    $("#del-gst").val(item["gst"]);
-    $("#del-value").val(item["value"]);
-    $("#del-tax_amount").val(item["tax_amount"]);
-    $("#del-item_total_amount").val(item["item_total_amount"]);
-
-    $('#delItemBtn').click(function(){
-        items_list.splice(item_id,1);
-        eleDeleteModal.modal('hide');
-        createTable();
-    });
-});
-
-$(document).on('click', "#saveItemBtn", function(){
-    var newItem = {};
-    newItem["description"] = $("#description").val();
-    newItem["brand"] = $("#brand").val();
-    newItem["hsn"] = $("#hsn_code").val();
-    newItem["unit"] = $("#unit").val();
-    newItem["qty"] = $("#qty").val();
-    newItem["rate"] = $("#rate").val();
-    newItem["gst"] = $("#gst").val();
-
-    item_calculated_amounts = calculate_amounts(newItem["qty"], newItem["rate"], newItem["gst"]);
-
-    newItem["value"] = item_calculated_amounts["value"];
-    newItem["tax_amount"] = item_calculated_amounts["tax_amount"]
-    newItem["item_total_amount"] = item_calculated_amounts["item_total_amount"];
-
-    items_list.push(newItem);
-    eleModal = $(this).parent().parent().parent().parent();
-    eleModal.modal('hide');
-
-    createTable();
-});
-
-function triggers(id){
-    $(document).on('change keyup mouseup', id, function(){
-
-        var eleQty = $("#qty");
-        var eleRate = $("#rate");
-        var eleGst = $("#gst");
-        var eleValue = $("#value");
-        var eleTaxAmount = $("#tax_amount");
-        var eleItemTotalAmount = $("#item_total_amount");
-
-        var qty = eleQty.val();
-        if (!qty){
-            qty = 0;
-        }
-
-        var rate = eleRate.val();
-        if (!rate){
-            rate = 0;
-        }
-
-        var gst = eleGst.val();
-    
-        amounts = calculate_amounts(qty, rate, gst);
-        eleValue.val(toIndianCurrency(amounts["value"]));
-        eleTaxAmount.val(toIndianCurrency(amounts["tax_amount"]));
-        eleItemTotalAmount.val(toIndianCurrency(amounts["item_total_amount"]));
-    });
-}
-
 function toIndianCurrency(num){
     return num.toLocaleString('en-IN', {
         maximumFractionDigits: 2,
@@ -136,17 +40,13 @@ function calculate_amounts(qty, rate, gst){
     return amounts;
 }
 
-var ids = ['#qty', '#rate', '#gst'];
-for (let x in ids){
-    triggers(ids[x]);
-}
-
 function createTable(){
     eleTableBody = $("#item_list_table tbody");
 
     eleTableBody.html('');
 
     for (var i=0; i<items_list.length; i++){
+        console.log(items_list[i])
         eleTableBody.append(renderItemRow(i, items_list[i]));
     }
 }
