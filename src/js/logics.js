@@ -16,7 +16,7 @@ var company = {
 };
 
 var items_list = [];
-items_list.push({"description": "Cup Saucer", "brand": "Borosil", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.18", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
+items_list.push({"description": "Cup Saucer", "brand": "Borosil", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.12", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
 items_list.push({"description": "Spoons", "brand": "VIP", "hsn": "11", "unit": "PCS", "qty": "1", "rate": "1005", "gst": "0.18", "value": 1005, "tax_amount": 180.9, "item_total_amount": 1185.9 });
 
 var buyerDetails = {};
@@ -39,11 +39,28 @@ $(document).on('click', '#saveBtnBuyerDetail', function(){
 });
 
 $(document).on('click', '.delete', function(){ 
+    eleDeleteModal = $('#confirmDeleteModal')
     item_id = $(this).parent().parent().attr('id');
     item_id = item_id.split("_")[1];
-    console.log(item_id);
-    items_list.splice(item_id,1);
-    createTable();
+
+    eleDeleteModal.modal('show');
+    var item = items_list[item_id];
+    $("#del-description").val(item["description"]);
+    $("#del-brand").val(item["brand"]);
+    $("#del-hsn_code").val(item["hsn"]);
+    $("#del-unit").val(item["unit"]);
+    $("#del-qty").val(item["qty"]);
+    $("#del-rate").val(item["rate"]);
+    $("#del-gst").val(item["gst"]);
+    $("#del-value").val(item["value"]);
+    $("#del-tax_amount").val(item["tax_amount"]);
+    $("#del-item_total_amount").val(item["item_total_amount"]);
+
+    $('#delItemBtn').click(function(){
+        items_list.splice(item_id,1);
+        eleDeleteModal.modal('hide');
+        createTable();
+    });
 });
 
 $(document).on('click', "#saveItemBtn", function(){
@@ -57,7 +74,6 @@ $(document).on('click', "#saveItemBtn", function(){
     newItem["gst"] = $("#gst").val();
 
     item_calculated_amounts = calculate_amounts(newItem["qty"], newItem["rate"], newItem["gst"]);
-    console.log(item_calculated_amounts);
 
     newItem["value"] = item_calculated_amounts["value"];
     newItem["tax_amount"] = item_calculated_amounts["tax_amount"]
@@ -127,13 +143,11 @@ for (let x in ids){
 
 function createTable(){
     eleTableBody = $("#item_list_table tbody");
-    console.log(eleTableBody);
 
     eleTableBody.html('');
 
     for (var i=0; i<items_list.length; i++){
         eleTableBody.append(renderItemRow(i, items_list[i]));
-        console.log(items_list[i]);
     }
 }
 

@@ -1,0 +1,126 @@
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body p-5">
+
+                <label for="del-description">Description</label>
+                <input class="form-control" id="del-description" readonly>
+                <br>
+            
+                <label for="del-brand">Brand</label>
+                <input class="form-control" id="del-brand" readonly>
+                <br>
+
+                <!-- Row for hsn code, unit and quantity-->
+                <div class="row">
+
+                    <div class="col">
+
+                        <!--HSN Code-->
+                        <label for="del-hsn_code">HSN Code</label>
+                        <input class="form-control" id="del-hsn_code" readonly><br>
+                    </div>
+
+                    <!--Unit-->
+                    <div class="col">
+                        <label for="del-unit">Unit</label>
+                        <input type="text" class="form-control" id="del-unit" readonly><br>
+                    </div>
+
+                    <!--Quantity-->
+                    <div class="col">
+                        <label for="del-qty">Quantity</label>
+                        <input type="number" class="form-control" id="del-qty" readonly><br>
+                    </div>
+
+                </div>
+
+                <!-- Row for rate and value-->
+                <div class="row">
+
+                    <div class="col">
+
+                        <!--Rate-->
+                        <label for="del-rate">Rate</label>
+                        <input type="number" class="form-control" id="del-rate" readonly><br>
+                    </div>
+
+                    <!--Value-->
+                    <div class="col">
+                        <label for="del-value">Value</label>
+                        <input type="text" class="form-control" id="del-value" disabled><br>        
+                    </div>
+
+                </div>
+
+                <!-- Row for gst and tax amount-->
+                <div class="row">
+
+                    <div class="col">
+
+                        <!--GST-->
+                        <label for="del-gst">GST %</label>
+                        <input type="text" class="form-control" id="del-gst" readonly><br>
+                    </div>
+
+                    <!--Value-->
+                    <div class="col">
+                        <label for="del-tax_amount">Tax Amount</label>
+                        <input type="text"  class="form-control" id="del-tax_amount" disabled><br>       
+                    </div>
+
+                </div>
+
+
+                <label for="del-item_total_amount">Total Amount (Value + GST)</label>
+                <input type="text" class="form-control form-control-lg" id="del-item_total_amount" disabled><br>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="delItemBtn">Delete Item</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="alert" role="alert" id="result"></div>
+<script>
+    var modalConfirm = function(callback){
+  
+  $("#btn-confirm").on("click", function(){
+    $("#mi-modal").modal('show');
+  });
+
+  $("#modal-btn-si").on("click", function(){
+    callback(true);
+    $("#mi-modal").modal('hide');
+  });
+  
+  $("#modal-btn-no").on("click", function(){
+    callback(false);
+    $("#mi-modal").modal('hide');
+  });
+};
+
+modalConfirm(function(confirm){
+  if(confirm){
+    //Acciones si el usuario confirma
+    $("#result").html("CONFIRMADO");
+  }else{
+    //Acciones si el usuario no confirma
+    $("#result").html("NO CONFIRMADO");
+  }
+});
+</script>
