@@ -48,6 +48,27 @@ function createTable(){
     for (var i=0; i<items_list.length; i++){
         eleTableBody.append(renderItemRow(i, items_list[i]));
     }
+
+    let total_tax_amount = 0;
+    let total_item_total_amount = 0;
+
+    for (let item_index in items_list){
+        let item = items_list[item_index];
+        total_tax_amount += item["tax_amount"];
+        total_item_total_amount += item["item_total_amount"];
+    }
+    
+    total_rows = `` +
+        `<tr>
+            <td class="text-right" colspan="10"><b>Total Tax:</b></td>
+            <td><b>${toIndianCurrency(total_tax_amount)}</b></td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="10"><b>Total Amount:</b></td>
+            <td><b>${toIndianCurrency(total_item_total_amount)}</b></td>
+        </tr>`;
+    
+    eleTableBody.append(total_rows);
 }
 
 function renderItemRow(index, item){
