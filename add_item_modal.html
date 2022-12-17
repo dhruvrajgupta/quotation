@@ -169,7 +169,7 @@
                 rate = 0;
             }
 
-            var gst = eleGst.find(':selected').val();
+            var gst = eleGst.val();
         
             amounts = calculate_amounts(qty, rate, gst);
             eleValue.val(toIndianCurrency(amounts["value"]));

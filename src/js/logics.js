@@ -46,7 +46,6 @@ function createTable(){
     eleTableBody.html('');
 
     for (var i=0; i<items_list.length; i++){
-        console.log(items_list[i])
         eleTableBody.append(renderItemRow(i, items_list[i]));
     }
 }

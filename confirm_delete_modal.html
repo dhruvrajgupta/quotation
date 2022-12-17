@@ -118,6 +118,10 @@
             items_list.splice(item_id,1);
             eleDeleteModal.modal('hide');
             createTable();
+            let table_len = $('tbody tr');
+            if (table_len.length == 0) {
+                $('tbody').html('<tr><td colspan="12">No Item added to Quoation / Proforma</td></tr>');
+            }
         });
     });
 </script>

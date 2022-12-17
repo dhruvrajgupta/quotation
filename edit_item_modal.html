@@ -113,7 +113,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success" id="saveItemBtn">Modify Item</button>
+                <button type="button" class="btn btn-success" id="modifyItemBtn">Modify Item</button>
             </div>
 
         </div>
@@ -121,11 +121,15 @@
 </div>
 
 <script>
+    var edit_ids = ['#edit-qty', '#edit-rate', '#edit-gst'];
+    for (let x in edit_ids){
+        editTriggers(edit_ids[x]);
+    }
+
     $(document).on('click', '.edit', function(){ 
         eleEditModal = $('#editItemModal');
         item_id = $(this).parent().parent().attr('id');
         item_id = item_id.split("_")[1];
-        console.log(item_id);
 
         eleEditModal.modal('show');
         var item = items_list[item_id];
@@ -140,5 +144,60 @@
         $("#edit-value").val(toIndianCurrency(item["value"]));
         $("#edit-tax_amount").val(toIndianCurrency(item["tax_amount"]));
         $("#edit-item_total_amount").val(toIndianCurrency(item["item_total_amount"]));
+
+        $("#modifyItemBtn").click(function(){
+            modifyItem(item_id);
+            eleEditModal.modal('hide');
+
+            createTable();
+        });
     });
+
+    function editTriggers(id){
+        $(document).on('change keyup mouseup', id, function(){
+
+            var eleEditQty = $("#edit-qty");
+            var eleEditRate = $("#edit-rate");
+            var eleEditGst = $("#edit-gst");
+            var eleEditValue = $("#edit-value");
+            var eleEditTaxAmount = $("#edit-tax_amount");
+            var eleEditItemTotalAmount = $("#edit-item_total_amount");
+
+            var edit_qty = eleEditQty.val();
+            if (!edit_qty){
+                edit_qty = 0;
+            }
+
+            var edit_rate = eleEditRate.val();
+            if (!edit_rate){
+                edit_rate = 0;
+            }
+
+            var edit_gst = eleEditGst.val();
+        
+            edit_amounts = calculate_amounts(edit_qty, edit_rate, edit_gst);
+            eleEditValue.val(toIndianCurrency(edit_amounts["value"]));
+            eleEditTaxAmount.val(toIndianCurrency(edit_amounts["tax_amount"]));
+            eleEditItemTotalAmount.val(toIndianCurrency(edit_amounts["item_total_amount"]));
+        });
+    }
+
+    function modifyItem(id){
+        var modifiedItem = {};
+        modifiedItem["description"] = $("#edit-description").val();
+        modifiedItem["brand"] = $("#edit-brand").val();
+        modifiedItem["hsn"] = $("#edit-hsn_code").val();
+        modifiedItem["unit"] = $("#edit-unit").val();
+        modifiedItem["qty"] = $("#edit-qty").val();
+        modifiedItem["rate"] = $("#edit-rate").val();
+        modifiedItem["gst"] = $("#edit-gst").val();
+
+        modified_item_calculated_amounts = calculate_amounts(modifiedItem["qty"], modifiedItem["rate"], modifiedItem["gst"]);
+
+        modifiedItem["value"] = modified_item_calculated_amounts["value"];
+        modifiedItem["tax_amount"] = modified_item_calculated_amounts["tax_amount"]
+        modifiedItem["item_total_amount"] = modified_item_calculated_amounts["item_total_amount"];
+
+        items_list[id] = modifiedItem;
+    }
 </script>
