@@ -147,6 +147,7 @@
         eleModal.modal('hide');
 
         createTable();
+        clearAddItemForm();
     });
 
     function triggers(id){
@@ -176,5 +177,18 @@
             eleTaxAmount.val(toIndianCurrency(amounts["tax_amount"]));
             eleItemTotalAmount.val(toIndianCurrency(amounts["item_total_amount"]));
         });
+    }
+
+    function clearAddItemForm(){
+        $("#description").val('');
+        $("#brand").val('');
+        $("#hsn_code").val('');
+        $("#unit").val('PCS');
+        $("#qty").val('');
+        $("#rate").val('');
+        $("#gst").val('0.18');
+        $("#value").val('');
+        $("#tax_amount").val('');
+        $("#item_total_amount").val('');
     }
 </script>

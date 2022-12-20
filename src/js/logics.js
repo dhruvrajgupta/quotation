@@ -60,15 +60,21 @@ function createTable(){
     
     total_rows = `` +
         `<tr>
+            <td colspan="12"></td>
+        </tr>
+        <tr>
             <td class="text-right" colspan="10"><b>Total Tax:</b></td>
             <td><b>${toIndianCurrency(total_tax_amount)}</b></td>
+            <td></td>
         </tr>
         <tr>
             <td class="text-right" colspan="10"><b>Total Amount:</b></td>
             <td><b>${toIndianCurrency(total_item_total_amount)}</b></td>
+            <td></td>
         </tr>`;
     
     eleTableBody.append(total_rows);
+    eleTableBody.append(quotationFooter());
 }
 
 function renderItemRow(index, item){
@@ -86,10 +92,32 @@ function renderItemRow(index, item){
             <td>${toIndianCurrency(item["tax_amount"])}</td>
             <td>${toIndianCurrency(item["item_total_amount"])}</td>
             <td>
-                <button type="button" class="btn btn-success edit"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="btn-xs btn-success edit"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn-xs btn-danger delete"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>`;
 
     return render;
+}
+
+function quotationFooter(){
+    footer_rows = `` +
+        `<tr>
+            <td class="text-left" colspan="11">
+                <u><b>Terms & Conditions&nbsp;:</b></u><br/>
+                1. GST extra as applicable<br/>
+                2. Date of Delivery&nbsp;: 15 days After Recieved Order<br/>
+                3. 50% Advance against Order.<br/>
+                4. Balance payment before Delivery
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="11">
+                <b>Sales Person Contact&nbsp:</b><br/>
+                Subhash Ghosh (+91 9433099062)
+            </td>
+        </tr>`;
+    
+    return footer_rows;
 }
