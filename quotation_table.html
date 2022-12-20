@@ -3,37 +3,39 @@
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>
     </div>
     <div class="col">
-        <h4 class="text-center">QUOTATION</h4><br/>
+        <h4 class="text-center" id="quotation_proforma">QUOTATION</h4><br/>
     </div>
     <div class="col text-right">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">Performa</button>
+        <button type="button" class="btn btn-primary" id="btnQP">Quotation</button>
     </div>
 </div>
 <div class="row">
     <div class="col">
         <table id="item_list_table" class="table table-bordered text-center">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col" class=""text-left"">Description of Goods</th>
-                    <th scope="col">Brand</th>
-                    <th scope="col">HSN</th>
-                    <th scope="col">Unit</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Rate</th>
-                    <th scope="col">Value</th>
-                    <th scope="col">GST</th>
-                    <th scope="col">Tax</th>
-                    <th scope="col">Amount<br/>(Value+GST)</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td colspan="12">No Item added to Quoation / Proforma</td>
-                </tr>
-            </tbody>
         </table>
     </div>
 </div>
+
+<script>
+    createTable();
+
+    $(document).on('click', '#btnQP', function(){ 
+        
+        btnName = $(this).text();
+
+        if (btnName == "Quotation"){
+            btnName = "Proforma";
+            $(this).text(btnName);
+            $("#quotation_proforma").text(btnName.toUpperCase());
+            createTable();
+            // $("#item_list_table td:nth-child(6), th:nth-child(6)").hide();
+        } else {
+            btnName = "Quotation";
+            $(this).text(btnName);
+            $("#quotation_proforma").text(btnName.toUpperCase());
+            createTable();
+            // $("#item_list_table td:nth-child(6), th:nth-child(6)").show();
+        }
+
+    });
+</script>
