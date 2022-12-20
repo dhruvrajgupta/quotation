@@ -3,23 +3,22 @@
 		
 		<!-- From Address -->
 		<address>
-			<h4>YASH CORPORATION</h4>
-			26, Chatta Wala Gulli,<br>
-			Kolkata - 700-012, West Bengal<br>
-            <b>GSTIN: &nbsp; 19AFNPG2903E1ZN</b><br/><br/>
-			<b><i class="fa-sharp fa-solid fa-phone"></i> &nbsp; (+91) 9433099062</b><br/>
-			<b><i class="fa-solid fa-envelope"></i> &nbsp; yashcorpkol@gmail.com</b><br/>
+			<h4 id="company_name">YASH CORPORATION</h4>
+			<span id="address1">26, Chatta Wala Gulli,</span><br>
+			<span id="address2">Kolkata - 700-012, West Bengal</span><br>
+            <b>GSTIN: &nbsp; <span id="gstin">19AFNPG2903E1ZN</span></b><br/><br/>
+			<b><i class="fa-sharp fa-solid fa-phone"></i> &nbsp; <span id="phone">(+91) 9433099062</span></b><br/>
+			<b><i class="fa-solid fa-envelope"></i> &nbsp; <span id="email">yashcorpkol@gmail.com</span></b><br/>
             
 		</address>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editCompany">Edit Company</button><br/><br/>
+        <button type="button" class="btn btn-primary" id="btnEditCompany">Edit Company</button><br/><br/>
 
 	</div>
 
 	<div class="col">&nbsp;</div>
-	<div class="col">&nbsp;</div>
 	
 	<!-- To address -->
-	<div class="col">
+	<div class="col text-right">
 
 		<address>
 			<strong><span id="textBuyerName">Example Inc.</span></strong><br>
@@ -33,6 +32,7 @@
 </div>
 
 <script>
+    var selected_company = company_yc;
     var buyerDetails = {};
 
     function showBuyerDetails(buyerDetails){

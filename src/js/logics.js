@@ -6,13 +6,22 @@ $(function () {
 	})
 });
 
-var company = {
-    "name": "Yash Corporation",
+var company_yc = {
+    "name": "YASH CORPORATION",
     "address1": "26, Chatta Wala Gulli,",
     "address2": "Kolkata - 700-012, West Bengal",
     "phone": "(+91) 9433099062",
     "email": "yashcorpkol@gmail.com",
-    "gstin": ""
+    "gstin": "19AFNPG2903E1ZN"
+};
+
+var company_sgs = {
+    "name": "SHAW GLASS STORES",
+    "address1": "109A/1A, B.R.B Brabourne Road,",
+    "address2": "Kolkata - 700-001, West Bengal",
+    "phone": "(+91) 9433099062",
+    "email": "shawglassstores@gmail.com",
+    "gstin": "123456"
 };
 
 var items_list = [];
@@ -81,14 +90,14 @@ function renderItemRow(index, item){
     var render = `` +
         `<tr id='item_${index}'>
             <td>${index+1}</td>
-            <td>${item["description"]}</td>
+            <td class="text-left">${item["description"]}</td>
             <td>${item["brand"]}</td>
             <td>${item["hsn"]}</td>
             <td>${item["unit"]}</td>
             <td>${item["qty"]}</td>
             <td>${toIndianCurrency(item["rate"])}</td>
             <td>${toIndianCurrency(item["value"])}</td>
-            <td>${item["gst"]*100}</td>
+            <td>${item["gst"]*100} %</td>
             <td>${toIndianCurrency(item["tax_amount"])}</td>
             <td>${toIndianCurrency(item["item_total_amount"])}</td>
             <td>

@@ -1,10 +1,10 @@
 <!-- Modal -->
-<div class="modal fade" data-backdrop="static" data-keyboard="false" id="editCompany" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="editCompanyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Company Name</h5>
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Select Company</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,18 +12,75 @@
 
             <div class="modal-body p-5">
 
-                <label for="change_company_name" class="form-label">Company Name</label>
-                <input class="form-control" id="brand" placeholder="Eg: 1234 Example Street..."><br>
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header bg-primary">
+                            <h4 class="my-0 font-weight-normal">Yash Corporation</h4>
+                        </div>
+                        <div class="card-body">
+                            <address>
+                                26, Chatta Wala Gulli,<br>
+                                Kolkata - 700-012, West Bengal<br>
+                                <b>GSTIN: &nbsp; 19AFNPG2903E1ZN</b><br/><br/>
+                                <b><i class="fa-sharp fa-solid fa-phone"></i> &nbsp; (+91) 9433099062</b><br/>
+                                <b><i class="fa-solid fa-envelope"></i> &nbsp; yashcorpkol@gmail.com</b><br/>
+                                
+                            </address><br/>
+                            <button type="button" class="btn btn-lg btn-block btn-primary" id="selectYC">Select</button>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header bg-primary">
+                            <h4 class="my-0 font-weight-normal">Shaw Glass Stores</h4>
+                        </div>
+                        <div class="card-body">
+                            <address>
+                                109A/1A, B.R.B Brabourne Road,<br>
+                                Kolkata - 700-001, West Bengal<br>
+                                <b>GSTIN: &nbsp; 123456</b><br/><br/>
+                                <b><i class="fa-sharp fa-solid fa-phone"></i> &nbsp; (+91) 9433099062</b><br/>
+                                <b><i class="fa-solid fa-envelope"></i> &nbsp; shawglassstores@gmail.com</b><br/>
+                                
+                            </address><br/>
+                            <button type="button" class="btn btn-lg btn-block btn-primary" id="selectSGS">Select</button>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Manual entry or predefined entry -->
                 
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Item</button>
-            </div>
-
         </div>
     </div>
 </div>
+
+<script>
+    $(document).on('click', '#btnEditCompany', function(){ 
+        eleEditCompanyModal = $('#editCompanyModal');
+
+        eleEditCompanyModal.modal('show');
+
+        $("#selectYC").click(function(){
+            selected_company = company_yc;
+            eleEditCompanyModal.modal('hide');
+            renderCompanyAddress();
+        });
+
+        $("#selectSGS").click(function(){
+            selected_company = company_sgs;
+            eleEditCompanyModal.modal('hide');
+            renderCompanyAddress();
+        });
+    });
+
+    function renderCompanyAddress(){
+        $("#company_name").html(selected_company["name"]);
+        $("#address1").html(selected_company["address1"]);
+        $("#address2").html(selected_company["address2"]);
+        $("#address1").html(selected_company["address1"]);
+        $("#gstin").html(selected_company["gstin"]);
+        $("#phone").html(selected_company["phone"]);
+        $("#email").html(selected_company["email"]);
+    }
+</script>
