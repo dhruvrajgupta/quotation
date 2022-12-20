@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="editDeliveryDate" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">Edit Delivery Date Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body p-5">
+
+                <label for="change_company_name" class="form-label">Delivery Date Details</label>
+                <input class="form-control" id="edit-dd"><br>
+
+                <!-- Manual entry or predefined entry -->
+                
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="modifyDeliveryDate">Modify Delivery Date</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on('click', '#dd', function(){ 
+        eleDDModal = $('#editDeliveryDate');
+
+        eleDDModal.modal('show');
+        delivery_date_info = $("#delivery_date").html().trim();
+        $("#edit-dd").val(delivery_date_info);
+
+        $("#modifyDeliveryDate").click(function(){
+            delivery_date_info = $("#edit-dd").val();
+            $("#delivery_date").html(delivery_date_info);
+            eleDDModal.modal('hide');
+        });
+    });
+</script>

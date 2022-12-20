@@ -106,7 +106,12 @@ function quotationFooter(){
             <td class="text-left" colspan="11">
                 <u><b>Terms & Conditions&nbsp;:</b></u><br/>
                 1. GST extra as applicable<br/>
-                2. Date of Delivery&nbsp;: 15 days After Recieved Order<br/>
+                <span id="delivery_date">
+                    2. Date of Delivery : 15 days After Recieved Order
+                </span>
+                <button type="button" class="btn-xs btn-success" id="dd">
+                <i class="fas fa-edit"></i></button>
+                <br/>
                 3. 50% Advance against Order.<br/>
                 4. Balance payment before Delivery
             </td>
@@ -114,7 +119,7 @@ function quotationFooter(){
         </tr>
         <tr>
             <td colspan="11">
-                <b>Sales Person Contact&nbsp:</b><br/>
+                <b>Sales Manager Contact&nbsp:</b><br/>
                 Subhash Ghosh (+91 9433099062)
             </td>
         </tr>`;
