@@ -6,7 +6,7 @@
         <h4 class="text-center" id="quotation_proforma">QUOTATION</h4><br/>
     </div>
     <div class="col text-right">
-        <button type="button" class="btn btn-primary" id="btnQP">Quotation</button>
+        <button type="button" class="btn btn-primary" id="btnQP">Proforma</button>
     </div>
 </div>
 <div class="row">
@@ -24,17 +24,17 @@
         btnName = $(this).text();
 
         if (btnName == "Quotation"){
+            $("#quotation_proforma").text(btnName.toUpperCase());
             btnName = "Proforma";
             $(this).text(btnName);
-            $("#quotation_proforma").text(btnName.toUpperCase());
             createTable();
-            // $("#item_list_table td:nth-child(6), th:nth-child(6)").hide();
-        } else {
+        } 
+        
+        else if (btnName == "Proforma") {
+            $("#quotation_proforma").text(btnName.toUpperCase());
             btnName = "Quotation";
             $(this).text(btnName);
-            $("#quotation_proforma").text(btnName.toUpperCase());
             createTable();
-            // $("#item_list_table td:nth-child(6), th:nth-child(6)").show();
         }
 
     });

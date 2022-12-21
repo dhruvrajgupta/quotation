@@ -70,7 +70,7 @@ function createTable(){
     }
 
         let colspan_count = 0;
-        if ($("#btnQP").text() == "Quotation"){
+        if ($("#btnQP").text() == "Proforma"){
             colspan_count = 12; 
         } else {
             colspan_count = 11;
@@ -104,7 +104,7 @@ function renderItemRow(index, item){
             <td>${item["hsn"]}</td>
             <td>${item["unit"]}</td>`
             
-    if ($("#btnQP").text() == "Quotation"){
+    if ($("#btnQP").text() == "Proforma"){
         render += `<td>${item["qty"]}</td>` 
     }
         render += `
@@ -124,7 +124,7 @@ function renderItemRow(index, item){
 
 function quotationFooter(){
     let colspan_count = 0;
-    if ($("#btnQP").text() == "Quotation"){
+    if ($("#btnQP").text() == "Proforma"){
         colspan_count = 11; 
     } else {
         colspan_count = 10;
@@ -166,7 +166,7 @@ function renderTableHead(){
                 <th scope="col">HSN</th>
                 <th scope="col">Unit</th>`
                 
-    if ($("#btnQP").text() == "Quotation"){
+    if ($("#btnQP").text() == "Proforma"){
         table_head += `<th scope="col">Qty</th>`
     }
 
