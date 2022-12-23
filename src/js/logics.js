@@ -137,7 +137,7 @@ function quotationFooter(){
                 1. GST extra as applicable<br/>
                 <span id="delivery_date">
                     2. Date of Delivery : 15 days After Recieved Order
-                </span>
+                </span>&nbsp;
                 <button type="button" class="btn-xs btn-success" id="dd">
                 <i class="fas fa-edit"></i></button>
                 <br/>
