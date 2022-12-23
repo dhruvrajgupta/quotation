@@ -69,14 +69,12 @@ function createTable(){
         total_item_total_amount += item["item_total_amount"];
     }
 
-        let colspan_count = 0;
-        if ($("#btnQP").text() == "Proforma"){
-            colspan_count = 12; 
-        } else {
-            colspan_count = 11;
-        }
-    
-    total_rows = `` +
+    let colspan_count = 0;
+    let total_rows = ``;
+    if ($("#btnQP").text() == "Proforma"){
+        // Trigger QUOTATION
+        colspan_count = 12;
+        total_rows = `` +
         `<tr>
             <td colspan="${colspan_count}"></td>
         </tr>
@@ -90,6 +88,13 @@ function createTable(){
             <td><b>${toIndianCurrency(total_item_total_amount)}</b></td>
             <td></td>
         </tr>`;
+    } else {
+        colspan_count = 10;
+        total_rows = `` +
+        `<tr>
+            <td colspan="${colspan_count}"></td>
+        </tr>`;
+    }
     
     eleTableBody.append(total_rows);
     eleTableBody.append(quotationFooter());
@@ -108,12 +113,19 @@ function renderItemRow(index, item){
         render += `<td>${item["qty"]}</td>` 
     }
         render += `
-            <td>${toIndianCurrency(item["rate"])}</td>
-            <td>${toIndianCurrency(item["value"])}</td>
-            <td>${item["gst"]*100} %</td>
-            <td>${toIndianCurrency(item["tax_amount"])}</td>
-            <td>${toIndianCurrency(item["item_total_amount"])}</td>
-            <td>
+            <td>${toIndianCurrency(item["rate"])}</td>`
+
+    if ($("#btnQP").text() == "Proforma"){
+        render += `<td>${toIndianCurrency(item["value"])}</td>` 
+    }
+        render += `<td>${item["gst"]*100} %</td>`
+
+    if ($("#btnQP").text() == "Proforma"){
+        render += `<td>${toIndianCurrency(item["tax_amount"])}</td>
+        <td>${toIndianCurrency(item["item_total_amount"])}</td>` 
+    }
+        render +=``+
+            `<td>
                 <button type="button" class="btn-xs btn-success edit"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn-xs btn-danger delete"><i class="fa-solid fa-trash"></i></button>
             </td>
@@ -127,7 +139,7 @@ function quotationFooter(){
     if ($("#btnQP").text() == "Proforma"){
         colspan_count = 11; 
     } else {
-        colspan_count = 10;
+        colspan_count = 7;
     }
 
     footer_rows = `` +
@@ -167,16 +179,30 @@ function renderTableHead(){
                 <th scope="col">Unit</th>`
                 
     if ($("#btnQP").text() == "Proforma"){
+        // Quotation Stuff
         table_head += `<th scope="col">Qty</th>`
     }
 
         table_head += `` +
-                `<th scope="col">Rate</th>
-                <th scope="col">Value</th>
-                <th scope="col">GST</th>
-                <th scope="col">Tax</th>
-                <th scope="col">Amount<br/>(Value+GST)</th>
-                <th scope="col">Action</th>
+                `<th scope="col">Rate</th>`
+
+    if ($("#btnQP").text() == "Proforma"){
+        // Quotation Stuff
+        table_head += `<<th scope="col">Value</th>`
+    }
+                
+        table_head += `` +
+                `<th scope="col">GST</th>`
+
+    if ($("#btnQP").text() == "Proforma"){
+        // Quotation Stuff
+        table_head += `` +
+                `<th scope="col">Tax</th>
+                <th scope="col">Amount<br/>(Value+GST)</th>`
+    }
+
+        table_head += `` +
+                `<th scope="col">Action</th>
             </tr>
         </thead>`
 
