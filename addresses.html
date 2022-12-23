@@ -9,9 +9,7 @@
             <b>GSTIN: &nbsp; <span id="gstin">19AFNPG2903E1ZN</span></b><br/><br/>
 			<b><i class="fa-sharp fa-solid fa-phone"></i> &nbsp; <span id="phone">(+91) 9433099062</span></b><br/>
 			<b><i class="fa-solid fa-envelope"></i> &nbsp; <span id="email">yashcorpkol@gmail.com</span></b><br/>
-            
 		</address>
-        <button type="button" class="btn btn-primary" id="btnEditCompany">Edit Company</button><br/><br/>
 
 	</div>
 
@@ -21,14 +19,28 @@
 	<div class="col text-right">
 
 		<address>
-			<strong><span id="textBuyerName">Example Inc.</span></strong><br>
+			<h6><b><span id="textBuyerName">Example Inc.</span></b></h6>
 			<span id="textBuyerAddress1">1234 Example Street</span><br>
 			<span id="textBuyerAddress2">Antartica, Example 0987</span><br><br>
 			<i class="fa-sharp fa-solid fa-phone"></i> &nbsp; <span id="textBuyerPhone">(123) 456-7890</span>
 		</address>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editBuyerModal">Change Buyer</button>
-		
-	</div>
+        
+    </div>
+
+</div>
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>&nbsp;
+        <button type="button" class="btn btn-warning" id="btnEditCompany">Change Company</button>
+        <br/><br/>
+    </div>
+    <div class="col">&nbsp;</div>
+    <div class="col">
+        <div class="float-right">
+            <button type="button" class="btn btn-light" id="btnQP">Proforma</button>&nbsp;
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editBuyerModal">Change Buyer</button> 
+        </div>
+    </div>
 </div>
 
 <script>

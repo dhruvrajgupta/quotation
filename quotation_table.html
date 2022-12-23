@@ -1,12 +1,15 @@
 <div class="row">
     <div class="col">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+        &nbsp;<b>Reference No:</b> <span id="ref_no"></span>&nbsp;
+        <button type="button" class="btn-xs btn-success" id="editRefNo">
+            <i class="fas fa-edit"></i>
+        </button>
     </div>
     <div class="col">
         <h4 class="text-center" id="quotation_proforma">QUOTATION</h4><br/>
     </div>
     <div class="col text-right">
-        <button type="button" class="btn btn-primary" id="btnQP">Proforma</button>
+        &nbsp;<b>Date:</b> <span id="date"></span>
     </div>
 </div>
 <div class="row">
@@ -18,6 +21,34 @@
 
 <script>
     createTable();
+
+    // SET DATE
+    var date = new Date();
+    var year = date.toLocaleString("default", { year: "numeric" });
+    var month = date.toLocaleString("default", { month: "short" });
+    var day = date.toLocaleString("default", { day: "2-digit" });
+    var month_digit = date.toLocaleString("default", { month: "2-digit"})
+    $("#date").text(day+"-"+month+"-"+year);
+
+    // SET Reference Number
+    function generateReferenceNumber(){
+        let prefix = "";
+        var random_number = Math.floor(Math.random()*(9999-1000+1)+1000);
+        if ( (typeof selected_company == "undefined") || (selected_company == company_yc) ){
+            prefix = "YC";
+        } else {
+            prefix = "SG"
+        }
+
+        var ref_no = prefix+"-"+year+"-"+month_digit+""+day+"-"+random_number;
+        $("#ref_no").text(ref_no);
+    }
+
+    generateReferenceNumber();
+
+    $(document).on('click', '#editRefNo', function(){
+        generateReferenceNumber();
+    });
 
     $(document).on('click', '#btnQP', function(){ 
         
