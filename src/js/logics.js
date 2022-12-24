@@ -21,7 +21,7 @@ var company_sgs = {
     "address2": "Kolkata - 700-001, West Bengal",
     "phone": "(+91) 9433099062",
     "email": "shawglassstores@gmail.com",
-    "gstin": "123456"
+    "gstin": "19ADOPG4897L2ZL"
 };
 
 var items_list = [];
@@ -125,7 +125,7 @@ function renderItemRow(index, item){
         <td>${toIndianCurrency(item["item_total_amount"])}</td>` 
     }
         render +=``+
-            `<td>
+            `<td class="no-print">
                 <button type="button" class="btn-xs btn-success edit"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn-xs btn-danger delete"><i class="fa-solid fa-trash"></i></button>
             </td>
@@ -136,6 +136,7 @@ function renderItemRow(index, item){
 
 function quotationFooter(){
     let colspan_count = 0;
+    const mediaQuery = window.matchMedia('print');
     if ($("#btnQP").text() == "Proforma"){
         colspan_count = 11; 
     } else {
@@ -150,20 +151,20 @@ function quotationFooter(){
                 <span id="delivery_date">
                     2. Date of Delivery : 15 days After Recieved Order
                 </span>&nbsp;
-                <button type="button" class="btn-xs btn-success" id="dd">
+                <button type="button" class="btn-xs btn-success no-print" id="dd">
                 <i class="fas fa-edit"></i></button>
                 <br/>
                 3. 50% Advance against Order.<br/>
                 4. Balance payment before Delivery
             </td>
             <td></td>
-        </tr>
-        <tr>
-            <td colspan="${colspan_count}">
-                <b>Sales Manager Contact&nbsp:</b><br/>
-                Subhash Ghosh (+91 9433099062)
-            </td>
-        </tr>`;
+        </tr>`
+        // <tr>
+        //     <td colspan="${colspan_count}">
+        //         <b>Sales Manager Contact&nbsp:</b><br/>
+        //         Subhash Ghosh (+91 9433099062)
+        //     </td>
+        // </tr>`;
     
     return footer_rows;
 }
@@ -202,7 +203,7 @@ function renderTableHead(){
     }
 
         table_head += `` +
-                `<th scope="col">Action</th>
+                `<th scope="col" class="no-print">Action</th>
             </tr>
         </thead>`
 
