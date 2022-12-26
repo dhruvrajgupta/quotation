@@ -118,7 +118,7 @@ function renderItemRow(index, item){
     if ($("#btnQP").text() == "Proforma"){
         render += `<td>${toIndianCurrency(item["value"])}</td>` 
     }
-        render += `<td>${item["gst"]*100} %</td>`
+        render += `<td>${item["gst"]*100}%</td>`
 
     if ($("#btnQP").text() == "Proforma"){
         render += `<td>${toIndianCurrency(item["tax_amount"])}</td>
