@@ -17,8 +17,8 @@ var company_yc = {
 
 var company_sgs = {
     "name": "SHAW GLASS STORES",
-    "address1": "109A/1A, Biplabi Rash Bihari Basu Road (Canning Street),",
-    "address2": "Kolkata - 700-001, West Bengal",
+    "address1": "109A/1A, Biplabi Rash Bihari Basu Road,",
+    "address2": "(Canning St.), Kolkata - 700-001, West Bengal",
     "phone": "(+91) 9433099062",
     "email": "shawglassstores@gmail.com",
     "gstin": "19ADOPG4897L2ZL"
